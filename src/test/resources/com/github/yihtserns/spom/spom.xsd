@@ -1,0 +1,84 @@
+<xs:schema id="NewDataSet" targetNamespace="http://github.com/yihtserns/spom" xmlns:mstns="http://github.com/yihtserns/spom" xmlns="http://github.com/yihtserns/spom" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="issueManagement" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="system" form="unqualified" type="xs:string" />
+            <xs:attribute name="url" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="license" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="name" form="unqualified" type="xs:string" />
+            <xs:attribute name="url" form="unqualified" type="xs:string" />
+            <xs:attribute name="distribution" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="scm" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="connection" form="unqualified" type="xs:string" />
+            <xs:attribute name="developerConnection" form="unqualified" type="xs:string" />
+            <xs:attribute name="url" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="developer" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="id" form="unqualified" type="xs:string" />
+            <xs:attribute name="name" form="unqualified" type="xs:string" />
+            <xs:attribute name="email" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="properties" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="##local" processContents="skip"/>
+                </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dependencies" minOccurs="0">
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="compile" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" form="unqualified" type="xs:string" />
+                  <xs:attribute name="exclude" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="provided" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="runtime" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="test" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" form="unqualified" type="xs:string" />
+                  <xs:attribute name="exclude" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="parent" form="unqualified" type="xs:string" />
+      <xs:attribute name="id" form="unqualified" type="xs:string" use="required"/>
+      <xs:attribute name="name" form="unqualified" type="xs:string" />
+      <xs:attribute name="description" form="unqualified" type="xs:string" />
+      <xs:attribute name="url" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="project" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
